@@ -168,6 +168,12 @@ constexpr string<N1 + N2, char_array> operator+(string<N1, TL> const& l, string<
     return string<N1 + N2, char_array>(l, r);
 }
 
+template <int N1, typename TL, typename TR>
+constexpr string<N1, TL> operator+(string<N1, TL> const& l, string<0, TR> const& r)
+{
+    return l;
+}
+
 template <int N1_1, int N2, typename TR>
 constexpr string<N1_1 - 1 + N2, char_array> operator+(const char (&l)[N1_1], string<N2, TR> const& r)
 {
